@@ -97,8 +97,8 @@
 
 <style>
   .nav {
-    background: white;
-    border-bottom: 1px solid #e5e7eb;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
     padding: 1rem 0;
     position: sticky;
     top: 0;
@@ -117,8 +117,9 @@
   .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #2563eb;
+    color: white;
     text-decoration: none;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
   
   .nav-links {
@@ -129,15 +130,19 @@
   }
   
   .nav-links a {
-    color: #6b7280;
+    color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.2s;
+    transition: all 0.3s;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
   }
   
   .nav-links a:hover,
   .nav-links a.active {
-    color: #2563eb;
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
   }
   
   .nav-actions {
@@ -148,30 +153,35 @@
   
   .lang-btn {
     padding: 0.5rem 1rem;
-    background: #f3f4f6;
-    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 0.5rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: all 0.3s;
+    color: white;
+    backdrop-filter: blur(10px);
   }
   
   .lang-btn:hover {
-    background: #e5e7eb;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
   }
   
   .btn-cta {
     padding: 0.75rem 1.5rem;
-    background: #2563eb;
-    color: white;
+    background: white;
+    color: #667eea;
     text-decoration: none;
     border-radius: 0.5rem;
     font-weight: 600;
-    transition: background 0.2s;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   }
   
   .btn-cta:hover {
-    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
   }
   
   .menu-btn {

@@ -45,11 +45,13 @@
       <h1 class="text-gradient mb-4">{$t('heroTitle')}</h1>
       <p class="text-xl mb-6" style="color: var(--text-light);">{$t('heroSubtitle')}</p>
       
-      <div class="flex flex-col md:flex-row gap-4 justify-center mb-6">
-        <a href="/report-lost" class="btn btn-primary btn-lg">
+      <div class="flex flex-col md:flex-row gap-4 justify-center mb-2">
+        <a href="/report-lost" class="modern-btn modern-btn-lost">
+          <span class="btn-icon">🔍</span>
           {$t('iLostSomething')}
         </a>
-        <a href="/report-found" class="btn btn-secondary btn-lg">
+        <a href="/report-found" class="modern-btn modern-btn-found">
+          <span class="btn-icon">✨</span>
           {$t('iFoundSomething')}
         </a>
       </div>
@@ -58,7 +60,7 @@
 </section>
 
 <!-- Items Section -->
-<section class="section" style="background: var(--bg-light);">
+<section class="section" style="background: var(--bg-light); padding-top: 2rem;">
   <div class="container">
     <div class="text-center mb-6">
       <h2 class="text-gradient mb-4">Recent Items</h2>
@@ -272,5 +274,42 @@
   
   .cta-features span {
     color: rgba(255, 255, 255, 0.9) !important;
+  }
+  
+  .modern-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .modern-btn-lost {
+    background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+    color: white;
+  }
+  
+  .modern-btn-lost:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+  }
+  
+  .modern-btn-found {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+  }
+  
+  .modern-btn-found:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+  }
+  
+  .btn-icon {
+    font-size: 1.2rem;
   }
 </style>
