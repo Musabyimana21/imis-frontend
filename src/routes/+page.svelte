@@ -2,14 +2,14 @@
   import { onMount } from 'svelte';
   import { goto } from '$app/navigation';
   import { currentLanguage, t } from '$lib/translations.js';
-  import { env } from '$env/dynamic/public';
+  import { PUBLIC_API_URL } from '$env/static/public';
 
   let items = [];
   let loading = true;
   let filter = 'all';
   let lang = 'en';
 
-  const API_URL = env.PUBLIC_API_URL || 'http://localhost:8001';
+  const API_URL = PUBLIC_API_URL || 'http://localhost:8001';
 
   onMount(async () => {
     try {
