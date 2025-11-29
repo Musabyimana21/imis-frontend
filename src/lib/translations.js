@@ -16,7 +16,7 @@ export const translations = {
     
     // Hero Section
     heroTitle: 'ISHAKIRO',
-    heroSubtitle: 'Reuniting Lost Items with AI Technology',
+    heroSubtitle: 'Reuniting Lost Items in Rwanda',
     heroDescription: 'Report lost or found items in 30 seconds. No registration required.',
     iLostSomething: 'I Lost Something',
     iFoundSomething: 'I Found Something',
@@ -156,7 +156,7 @@ export const translations = {
     
     // Hero Section
     heroTitle: 'ISHAKIRO',
-    heroSubtitle: 'Guhuriza Ibintu Byabuze n\'Ikoranabuhanga rya AI',
+    heroSubtitle: 'Guhuriza Ibintu Byabuze mu Rwanda',
     heroDescription: 'Tanga ibintu byabuze cyangwa wasanze mu masegonda 30. Ntukeneye kwiyandikisha.',
     iLostSomething: 'Nabuze Ikintu',
     iFoundSomething: 'Nasanze Ikintu',
