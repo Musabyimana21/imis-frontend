@@ -1,8 +1,0 @@
-name = "imis-frontend"
-compatibility_date = "2023-11-01"
-pages_build_output_dir = "build"
-
-[build]
-command = "npm run build"
-cwd = "."
-watch_dir = "src"
