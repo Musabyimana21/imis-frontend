@@ -130,19 +130,21 @@
   }
   
   .nav-links a {
-    color: rgba(255, 255, 255, 0.9);
+    color: white !important;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
     transition: all 0.3s;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
   }
   
   .nav-links a:hover,
   .nav-links a.active {
-    color: white;
-    background: rgba(255, 255, 255, 0.2);
+    color: white !important;
+    background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(10px);
+    transform: translateY(-1px);
   }
   
   .nav-actions {

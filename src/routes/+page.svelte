@@ -205,24 +205,45 @@
 </section>
 
 <!-- CTA Section -->
-<section class="section cta-section">
-  <div class="container text-center">
-    <h2 class="mb-4 cta-title">Get Started</h2>
-    <p class="mb-6 cta-text">Join Rwandans reuniting with their lost items</p>
-    
-    <div class="flex flex-col md:flex-row gap-4 justify-center mb-6">
-      <a href="/report-lost" class="btn btn-lg cta-btn-primary">
-        Report Lost Item
-      </a>
-      <a href="/report-found" class="btn btn-lg cta-btn-secondary">
-        Report Found Item
-      </a>
-    </div>
-    
-    <div class="flex flex-col md:flex-row gap-4 justify-center text-sm cta-features">
-      <span>✓ Free to report</span>
-      <span>✓ No registration required</span>
-      <span>✓ Pay only when reunited</span>
+<section class="cta-section-modern">
+  <div class="container">
+    <div class="cta-content">
+      <div class="cta-header">
+        <h2 class="cta-title-modern">Get Started Today</h2>
+        <p class="cta-subtitle-modern">Join thousands of Rwandans reuniting with their lost items</p>
+      </div>
+      
+      <div class="cta-buttons">
+        <a href="/report-lost" class="cta-btn-modern cta-btn-lost-modern">
+          <span class="cta-icon">🔍</span>
+          <div class="cta-btn-content">
+            <span class="cta-btn-title">Report Lost Item</span>
+            <span class="cta-btn-desc">Found something? Help reunite it</span>
+          </div>
+        </a>
+        <a href="/report-found" class="cta-btn-modern cta-btn-found-modern">
+          <span class="cta-icon">✨</span>
+          <div class="cta-btn-content">
+            <span class="cta-btn-title">Report Found Item</span>
+            <span class="cta-btn-desc">Lost something? We'll help find it</span>
+          </div>
+        </a>
+      </div>
+      
+      <div class="cta-features-modern">
+        <div class="cta-feature-item">
+          <span class="feature-icon">✓</span>
+          <span class="feature-text">Free to report</span>
+        </div>
+        <div class="cta-feature-item">
+          <span class="feature-icon">✓</span>
+          <span class="feature-text">No registration required</span>
+        </div>
+        <div class="cta-feature-item">
+          <span class="feature-icon">✓</span>
+          <span class="feature-text">Pay only when reunited</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -237,43 +258,179 @@
     height: 2rem;
   }
   
-  .cta-section {
-    background: var(--primary);
+  .cta-section-modern {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 4rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cta-section-modern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/></svg>');
+    opacity: 0.3;
+  }
+  
+  .cta-content {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .cta-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .cta-title-modern {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: white !important;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  }
+  
+  .cta-subtitle-modern {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-weight: 500;
+  }
+  
+  .cta-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+  }
+  
+  .cta-btn-modern {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.75rem 2rem;
+    background: white;
+    border-radius: 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+  
+  .cta-btn-modern:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  }
+  
+  .cta-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+  }
+  
+  .cta-btn-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+  .cta-btn-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+  
+  .cta-btn-desc {
+    font-size: 0.875rem;
+    opacity: 0.7;
+  }
+  
+  .cta-btn-lost-modern {
+    border-left: 5px solid #f59e0b;
+  }
+  
+  .cta-btn-lost-modern .cta-icon {
+    color: #f59e0b;
+  }
+  
+  .cta-btn-lost-modern .cta-btn-title {
+    color: #1e293b;
+  }
+  
+  .cta-btn-lost-modern .cta-btn-desc {
+    color: #64748b;
+  }
+  
+  .cta-btn-found-modern {
+    border-left: 5px solid #10b981;
+  }
+  
+  .cta-btn-found-modern .cta-icon {
+    color: #10b981;
+  }
+  
+  .cta-btn-found-modern .cta-btn-title {
+    color: #1e293b;
+  }
+  
+  .cta-btn-found-modern .cta-btn-desc {
+    color: #64748b;
+  }
+  
+  .cta-features-modern {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .cta-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     color: white;
+    font-size: 1rem;
+    font-weight: 500;
   }
   
-  .cta-title {
+  .feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 0.875rem;
+  }
+  
+  .feature-text {
     color: white !important;
   }
   
-  .cta-text {
-    color: rgba(255, 255, 255, 0.9) !important;
-  }
-  
-  .cta-btn-primary {
-    background: white !important;
-    color: var(--primary) !important;
-    font-weight: 600;
-  }
-  
-  .cta-btn-primary:hover {
-    background: rgba(255, 255, 255, 0.9) !important;
-  }
-  
-  .cta-btn-secondary {
-    background: transparent !important;
-    color: white !important;
-    border: 1px solid white !important;
-    font-weight: 600;
-  }
-  
-  .cta-btn-secondary:hover {
-    background: white !important;
-    color: var(--primary) !important;
-  }
-  
-  .cta-features span {
-    color: rgba(255, 255, 255, 0.9) !important;
+  @media (max-width: 768px) {
+    .cta-title-modern {
+      font-size: 2rem;
+    }
+    
+    .cta-subtitle-modern {
+      font-size: 1rem;
+    }
+    
+    .cta-buttons {
+      grid-template-columns: 1fr;
+    }
+    
+    .cta-features-modern {
+      flex-direction: column;
+      gap: 1rem;
+    }
   }
   
   .modern-btn {
