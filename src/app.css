@@ -1,0 +1,496 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --secondary: #16a34a;
+  --text: #111827;
+  --text-light: #6b7280;
+  --text-muted: #9ca3af;
+  --bg: #ffffff;
+  --bg-light: #f9fafb;
+  --border: #e5e7eb;
+  --border-light: #f3f4f6;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --radius: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  font-size: 16px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+.card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--primary-dark);
+}
+
+.btn-secondary {
+  background: var(--bg);
+  color: var(--primary);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--bg-light);
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.form-input, .input-field {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--text);
+  transition: border-color 0.2s;
+}
+
+.form-input:focus, .input-field:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.form-input::placeholder, .input-field::placeholder {
+  color: var(--text-muted);
+}
+
+.text-gradient {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.hero-section .text-gradient {
+  color: var(--primary);
+}
+
+.hero-section p {
+  color: var(--text-light);
+}
+
+.hero-section .btn {
+  color: white;
+  background: var(--primary);
+}
+
+.hero-section .btn:hover {
+  background: var(--primary-dark);
+}
+
+.hero-section .btn-secondary {
+  background: white;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.hero-section .btn-secondary:hover {
+  background: var(--primary);
+  color: white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin-bottom: 0.75rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section {
+  padding: 3rem 0;
+}
+
+.hero-section {
+  padding: 4rem 0;
+  text-align: center;
+  background: var(--bg-light);
+  color: var(--text);
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.grid-4 {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.space-y-4 > * + * {
+  margin-top: 1rem;
+}
+
+.space-y-6 > * + * {
+  margin-top: 1.5rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-found {
+  background: #dcfce7;
+  color: #166534;
+  font-weight: 600;
+}
+
+.status-lost {
+  background: #fee2e2;
+  color: #991b1b;
+  font-weight: 600;
+}
+
+/* Ensure all text has proper contrast */
+.card h3,
+.card h2,
+.card h1 {
+  color: var(--text) !important;
+}
+
+.card p {
+  color: var(--text-light) !important;
+}
+
+/* Fix any white text on light backgrounds */
+.text-white {
+  color: var(--text) !important;
+}
+
+/* Ensure buttons have proper contrast */
+.btn {
+  font-weight: 600;
+}
+
+.btn-primary {
+  background: var(--primary) !important;
+  color: white !important;
+}
+
+.btn-secondary {
+  background: white !important;
+  color: var(--primary) !important;
+  border: 1px solid var(--border) !important;
+}
+
+/* Text color utilities - Force proper visibility */
+.text-gray-300,
+.text-gray-400,
+.text-gray-500 {
+  color: var(--text-muted) !important;
+}
+
+.text-gray-600,
+.text-gray-700 {
+  color: var(--text-light) !important;
+}
+
+.text-gray-800,
+.text-gray-900 {
+  color: var(--text) !important;
+}
+
+.text-white {
+  color: white !important;
+}
+
+/* Ensure all text elements have proper contrast */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text) !important;
+}
+
+p {
+  color: var(--text-light) !important;
+}
+
+span {
+  color: inherit !important;
+}
+
+/* Force visibility for all text elements */
+.card *,
+.section *,
+.container * {
+  color: inherit;
+}
+
+/* Override any conflicting styles */
+.text-xl,
+.text-lg,
+.text-sm,
+.text-xs {
+  color: inherit !important;
+}
+
+/* Ensure form elements are visible */
+.form-input,
+.form-label {
+  color: var(--text) !important;
+}
+
+.form-input::placeholder {
+  color: var(--text-muted) !important;
+}
+
+/* Navigation text */
+.nav-links a {
+  color: var(--text-light) !important;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--primary) !important;
+}
+
+/* Button text */
+.btn {
+  color: inherit !important;
+}
+
+.btn-primary {
+  color: white !important;
+}
+
+.btn-secondary {
+  color: var(--primary) !important;
+}
+
+/* Ensure proper contrast everywhere */
+body, html {
+  color: var(--text);
+}
+
+/* Fix any remaining visibility issues */
+.hero-section * {
+  color: inherit;
+}
+
+.footer * {
+  color: inherit;
+}
+
+/* Additional visibility fixes */
+.line-clamp-2 {
+  color: inherit !important;
+}
+
+/* Status badges with proper contrast */
+.status-badge {
+  font-weight: 600 !important;
+}
+
+.status-found {
+  background: #dcfce7 !important;
+  color: #166534 !important;
+}
+
+.status-lost {
+  background: #fee2e2 !important;
+  color: #991b1b !important;
+}
+
+/* Ensure all interactive elements are visible */
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+/* Loading states */
+.animate-spin {
+  color: inherit !important;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  .grid-2, .grid-3, .grid-4 {
+    grid-template-columns: 1fr;
+  }
+  
+  .section {
+    padding: 2rem 0;
+  }
+  
+  .hero-section {
+    padding: 3rem 0;
+  }
+  
+  /* Mobile text visibility */
+  .mobile-menu a {
+    color: var(--text) !important;
+  }
+}
