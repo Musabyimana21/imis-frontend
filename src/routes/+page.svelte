@@ -53,25 +53,6 @@
           {$t('iFoundSomething')}
         </a>
       </div>
-
-      <div class="grid grid-4 mt-6">
-        <div class="text-center">
-          <div class="font-semibold" style="color: var(--text);">Quick</div>
-          <div class="text-sm" style="color: var(--text-muted);">30 seconds</div>
-        </div>
-        <div class="text-center">
-          <div class="font-semibold" style="color: var(--text);">Smart</div>
-          <div class="text-sm" style="color: var(--text-muted);">AI matching</div>
-        </div>
-        <div class="text-center">
-          <div class="font-semibold" style="color: var(--text);">Secure</div>
-          <div class="text-sm" style="color: var(--text-muted);">Safe messaging</div>
-        </div>
-        <div class="text-center">
-          <div class="font-semibold" style="color: var(--text);">Local</div>
-          <div class="text-sm" style="color: var(--text-muted);">Mobile money</div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
