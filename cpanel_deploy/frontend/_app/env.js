@@ -1,0 +1,1 @@
+export const env={"PUBLIC_API_URL":"https://e-shakiro.com/api"}

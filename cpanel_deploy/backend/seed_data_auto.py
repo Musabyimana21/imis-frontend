@@ -1,0 +1,134 @@
+"""
+Auto seed script - no prompts
+"""
+from app.core.database import SessionLocal, engine
+from app.models.models import Base, User, Item, ItemStatus, UserRole
+from app.core.security import get_password_hash
+from datetime import datetime, timedelta
+import random
+
+CATEGORIES = ['phone', 'wallet', 'keys', 'bag', 'documents', 'electronics', 'jewelry', 'other']
+
+KIGALI_LOCATIONS = [
+    {'name': 'Kigali City Market', 'lat': -1.9536, 'lon': 30.0606},
+    {'name': 'Nyabugogo Bus Station', 'lat': -1.9403, 'lon': 30.0588},
+    {'name': 'Kimironko Market', 'lat': -1.9447, 'lon': 30.1131},
+    {'name': 'Kigali Convention Centre', 'lat': -1.9514, 'lon': 30.0944},
+    {'name': 'University of Rwanda', 'lat': -1.9659, 'lon': 30.1044},
+    {'name': 'Kigali International Airport', 'lat': -1.9686, 'lon': 30.1395},
+    {'name': 'Remera', 'lat': -1.9578, 'lon': 30.1047},
+    {'name': 'Nyamirambo', 'lat': -1.9789, 'lon': 30.0428}
+]
+
+LOST_ITEMS = [
+    {'title': 'Black iPhone 13 Pro', 'desc': 'Black iPhone 13 Pro with cracked screen protector. Has blue case.', 'cat': 'phone'},
+    {'title': 'Brown Leather Wallet', 'desc': 'Brown leather wallet containing ID card and some cash. Lost near market.', 'cat': 'wallet'},
+    {'title': 'Car Keys with Toyota Logo', 'desc': 'Set of car keys with Toyota keychain and house keys attached.', 'cat': 'keys'},
+    {'title': 'Blue Backpack', 'desc': 'Blue Nike backpack with laptop inside. Contains important documents.', 'cat': 'bag'},
+    {'title': 'National ID Card', 'desc': 'National ID card in the name of Jean Baptiste. Lost at bus station.', 'cat': 'documents'},
+    {'title': 'Silver MacBook Pro', 'desc': 'Silver MacBook Pro 13 inch with stickers on the lid.', 'cat': 'electronics'},
+    {'title': 'Gold Wedding Ring', 'desc': 'Gold wedding ring with engraving inside. Sentimental value.', 'cat': 'jewelry'},
+    {'title': 'Red Umbrella', 'desc': 'Red folding umbrella with wooden handle.', 'cat': 'other'},
+]
+
+FOUND_ITEMS = [
+    {'title': 'iPhone 13', 'desc': 'Found black iPhone near market. Screen is cracked.', 'cat': 'phone'},
+    {'title': 'Leather Wallet', 'desc': 'Found brown wallet with some cards inside.', 'cat': 'wallet'},
+    {'title': 'Toyota Car Keys', 'desc': 'Found car keys with Toyota logo at parking lot.', 'cat': 'keys'},
+    {'title': 'Nike Backpack', 'desc': 'Found blue backpack at bus station. Contains laptop.', 'cat': 'bag'},
+    {'title': 'ID Card', 'desc': 'Found national ID card near Nyabugogo.', 'cat': 'documents'},
+    {'title': 'MacBook Laptop', 'desc': 'Found silver laptop at cafe. Has stickers.', 'cat': 'electronics'},
+    {'title': 'Wedding Ring', 'desc': 'Found gold ring in restroom. Has engraving.', 'cat': 'jewelry'},
+    {'title': 'Umbrella', 'desc': 'Found red umbrella at restaurant.', 'cat': 'other'},
+]
+
+def main():
+    print("Creating database tables...")
+    Base.metadata.create_all(bind=engine)
+    
+    db = SessionLocal()
+    
+    try:
+        # Clear existing data
+        db.query(Item).delete()
+        db.query(User).delete()
+        db.commit()
+        
+        # Create users
+        users = []
+        admin = User(
+            email='admin@imis.rw',
+            hashed_password=get_password_hash('admin123'),
+            full_name='Admin User',
+            phone='+250788000000',
+            role=UserRole.ADMIN
+        )
+        db.add(admin)
+        users.append(admin)
+        
+        for i in range(1, 11):
+            user = User(
+                email=f'user{i}@imis.rw',
+                hashed_password=get_password_hash('password123'),
+                full_name=f'User {i}',
+                phone=f'+25078800{i:04d}',
+                role=UserRole.USER
+            )
+            db.add(user)
+            users.append(user)
+        
+        db.commit()
+        print(f"Created {len(users)} users")
+        
+        # Create items
+        items = []
+        for item_data in LOST_ITEMS:
+            location = random.choice(KIGALI_LOCATIONS)
+            user = random.choice(users[1:])
+            
+            item = Item(
+                user_id=user.id,
+                title=item_data['title'],
+                description=item_data['desc'],
+                category=item_data['cat'],
+                status=ItemStatus.LOST,
+                location_name=location['name'],
+                latitude=location['lat'],
+                longitude=location['lon'],
+                date_lost_found=datetime.utcnow() - timedelta(days=random.randint(1, 30)),
+                image_url='📦'
+            )
+            db.add(item)
+            items.append(item)
+        
+        for item_data in FOUND_ITEMS:
+            location = random.choice(KIGALI_LOCATIONS)
+            user = random.choice(users[1:])
+            
+            item = Item(
+                user_id=user.id,
+                title=item_data['title'],
+                description=item_data['desc'],
+                category=item_data['cat'],
+                status=ItemStatus.FOUND,
+                location_name=location['name'],
+                latitude=location['lat'],
+                longitude=location['lon'],
+                date_lost_found=datetime.utcnow() - timedelta(days=random.randint(1, 30)),
+                image_url='📦'
+            )
+            db.add(item)
+            items.append(item)
+        
+        db.commit()
+        print(f"Created {len(items)} items")
+        print("Database seeded successfully!")
+        
+    except Exception as e:
+        print(f"Error: {e}")
+        db.rollback()
+    finally:
+        db.close()
+
+if __name__ == "__main__":
+    main()

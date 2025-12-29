@@ -1,0 +1,82 @@
+╔═══════════════════════════════════════════════════════════════════╗
+║                                                                   ║
+║     🚀 IMIS CPANEL DEPLOYMENT - E-SHAKIRO.COM 🚀                 ║
+║                                                                   ║
+╚═══════════════════════════════════════════════════════════════════╝
+
+STEP 1: BACKEND DEPLOYMENT (5 minutes)
+=====================================
+
+1. In cPanel, go to "Python App"
+2. Click "Create Application"
+3. Settings:
+   - Python Version: 3.9 or higher
+   - Application Root: api
+   - Application URL: /api
+   - Application Startup File: app/main.py
+   - Application Entry Point: app
+
+4. Upload backend files:
+   - Upload ALL files from cpanel_deploy/backend/ to /home/eshakiro/api/
+   - Make sure .env file is uploaded
+
+5. Install dependencies:
+   - In Python App, click "Open Terminal"
+   - Run: pip install -r requirements.txt
+
+6. Start the application
+
+
+STEP 2: DATABASE SETUP (3 minutes)
+==================================
+
+1. In cPanel, go to "MySQL Databases"
+2. Create database: eshakiro_imis_production
+3. Create user: eshakiro_imis_user
+4. Password: Bachjudoly@11996
+5. Add user to database with ALL PRIVILEGES
+
+6. Run database setup:
+   - In Python App terminal, run: python setup_db.py
+
+
+STEP 3: FRONTEND DEPLOYMENT (2 minutes)
+======================================
+
+1. Upload ALL files from cpanel_deploy/frontend/ to /home/eshakiro/public_html/
+2. Make sure .htaccess file is uploaded for proper routing
+
+
+STEP 4: VERIFICATION (1 minute)
+==============================
+
+1. Visit: https://e-shakiro.com
+2. Test: Report lost item
+3. Test: Login with admin@imis.rw / admin123
+4. Check: API at https://e-shakiro.com/api/health
+
+
+TOTAL DEPLOYMENT TIME: 11 MINUTES
+
+═══════════════════════════════════════════════════════════════════
+
+WHAT'S INCLUDED:
+✓ AI Matching Engine (70% text + 30% location)
+✓ MTN Mobile Money Payment System
+✓ Real-time Messaging
+✓ Admin Dashboard
+✓ Bilingual Support (EN/RW)
+✓ Mobile Responsive Design
+✓ Production Database Configuration
+
+═══════════════════════════════════════════════════════════════════
+
+TROUBLESHOOTING:
+- If Python app fails: Check logs in cPanel Python App section
+- If database connection fails: Verify credentials in .env file
+- If frontend doesn't load: Check .htaccess file permissions
+
+═══════════════════════════════════════════════════════════════════
+
+Made with ❤️ for Rwanda 🇷🇼
+ISHAKIRO - Reuniting Lost Items with Their Owners
