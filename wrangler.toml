@@ -1,0 +1,8 @@
+name = "imis-frontend"
+compatibility_date = "2024-01-01"
+
+[env.production]
+vars = { 
+  PUBLIC_API_URL = "https://imis-backend-wk7z.onrender.com",
+  PUBLIC_SITE_URL = "https://e-shakiro.com"
+}
